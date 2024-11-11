@@ -1,1 +1,1 @@
-# ClickHouse
+# ClickHouse notes
