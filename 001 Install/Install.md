@@ -11,4 +11,4 @@
 
 > Просто считайте что вся дира **var/lib/clickhouse** это данные и монтируйте ее
 
-![ex]()
+![ex](https://github.com/AV-ghub/ClickHouse/blob/main/001%20Install/res/1.jpg)
