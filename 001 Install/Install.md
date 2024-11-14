@@ -12,3 +12,5 @@
 > Просто считайте что вся дира **var/lib/clickhouse** это данные и монтируйте ее
 
 ![ex](https://github.com/AV-ghub/ClickHouse/blob/main/001%20Install/res/1.jpg)
+
+В каталоге **metadata** хранятся описания .sql таблиц. Там внутри есть UUID этот UUID это имя каталога в store в data симлинки чтобы сохранить совместимость с прошлой структурой, с базами ordinary
