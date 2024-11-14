@@ -10,3 +10,5 @@
 > For MC: Press Ctrl + Space on current directory and this will show it size.
 
 > Просто считайте что вся дира **var/lib/clickhouse** это данные и монтируйте ее
+
+![ex]()
