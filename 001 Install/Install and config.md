@@ -1,10 +1,8 @@
 [Install](https://clickhouse.com/docs/ru/getting-started/tutorial)
 
-Чтобы законнектиться снаружи, в **/etc/clickhouse-server/config.xml** раскомментировать строки
+Чтобы законнектиться снаружи, в **/etc/clickhouse-server/config.xml** раскомментировать строку
 ```shell
 <listen_host>::</listen_host>
-...
-<listen_host>0.0.0.0</listen_host>
 ```
 
 Данные находятся тут 
