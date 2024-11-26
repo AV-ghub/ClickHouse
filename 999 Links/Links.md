@@ -2,4 +2,5 @@
 [Golang ClickHouse](https://clickhouse.uptrace.dev/clickhouse/configuration.html)  
 [ClickHouse v24.10 Release Webinar](https://www.youtube.com/watch?v=AamIAjURp4U)  
 [Теория и практика использования ClickHouse в реальных приложениях. Александр Зайцев (2018г)](https://habr.com/ru/articles/512304/)  
-[benchmark.clickhouse](https://benchmark.clickhouse.com/)
+[benchmark.clickhouse](https://benchmark.clickhouse.com/)  
+[How to Test Your Hardware with ClickHouse](https://clickhouse.com/docs/en/operations/performance-test)
