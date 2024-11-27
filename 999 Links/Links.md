@@ -9,6 +9,7 @@
 
 ### Tests
 [ClickHouse Versions Benchmark](https://benchmark.clickhouse.com/versions/)  
+[ClickHouse Hardware Benchmark](https://benchmark.clickhouse.com/hardware/)
 [How to Test Your Hardware with ClickHouse](https://clickhouse.com/docs/en/operations/performance-test)  
 [ClickHouse, Redshift and 2.5 Billion Rows of Time Series Data](https://brandonharris.io/redshift-clickhouse-time-series/)   
 [Testing the Performance of ClickHouse](https://clickhouse.com/blog/testing-the-performance-of-click-house)
