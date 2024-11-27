@@ -5,10 +5,12 @@
 [Теория и практика использования ClickHouse в реальных приложениях. Александр Зайцев (2018г)](https://habr.com/ru/articles/512304/)  
 
 ### Architecture
-[ClickHouse Parts and Partitions](https://chistadata.com/parts-and-partitions-in-clickhouse-part-i/)
+[ClickHouse Parts and Partitions](https://chistadata.com/parts-and-partitions-in-clickhouse-part-i/)   
+[ClickHouse Performance: Inside the Query Execution Pipeline](https://chistadata.com/inside-query-execution-pipeline-clickhouse/)   
 
 ### Rerfomance
 [The Secrets of ClickHouse Performance Optimizations at BDTC 2019](https://www.youtube.com/watch?v=ZOZQCQEtrz8)  
+[Tuning ClickHouse for High-velocity Data Ingestion in Distributed Tables](https://chistadata.com/fine-tuning-data-ingestion-in-clickhouse-distributed-tables/)
 
 ### Tests
 [ClickHouse Versions Benchmark](https://benchmark.clickhouse.com/versions/)  
