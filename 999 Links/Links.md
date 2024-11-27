@@ -9,7 +9,7 @@
 [ClickHouse Performance: Inside the Query Execution Pipeline](https://chistadata.com/inside-query-execution-pipeline-clickhouse/)   
 
 ### Benchmarks
-[ClickBench — a Benchmark For Analytical DBMS](https://benchmark.clickhouse.com/)
+[ClickBench — a Benchmark For Analytical DBMS](https://benchmark.clickhouse.com/)   
 [ClickHouse Versions Benchmark](https://benchmark.clickhouse.com/versions/)  
 [ClickHouse Hardware Benchmark](https://benchmark.clickhouse.com/hardware/)
 
