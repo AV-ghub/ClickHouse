@@ -8,13 +8,16 @@
 [ClickHouse Parts and Partitions](https://chistadata.com/parts-and-partitions-in-clickhouse-part-i/)   
 [ClickHouse Performance: Inside the Query Execution Pipeline](https://chistadata.com/inside-query-execution-pipeline-clickhouse/)   
 
-### Rerfomance
-[The Secrets of ClickHouse Performance Optimizations at BDTC 2019](https://www.youtube.com/watch?v=ZOZQCQEtrz8)  
-[Tuning ClickHouse for High-velocity Data Ingestion in Distributed Tables](https://chistadata.com/fine-tuning-data-ingestion-in-clickhouse-distributed-tables/)
-
-### Tests
+### Bemchmarks
+[ClickBench — a Benchmark For Analytical DBMS](https://benchmark.clickhouse.com/)
 [ClickHouse Versions Benchmark](https://benchmark.clickhouse.com/versions/)  
 [ClickHouse Hardware Benchmark](https://benchmark.clickhouse.com/hardware/)
+
+### Tests
 [How to Test Your Hardware with ClickHouse](https://clickhouse.com/docs/en/operations/performance-test)  
 [ClickHouse, Redshift and 2.5 Billion Rows of Time Series Data](https://brandonharris.io/redshift-clickhouse-time-series/)   
 [Testing the Performance of ClickHouse](https://clickhouse.com/blog/testing-the-performance-of-click-house)
+
+### Rerformance & tune
+[The Secrets of ClickHouse Performance Optimizations at BDTC 2019](https://www.youtube.com/watch?v=ZOZQCQEtrz8)  
+[Tuning ClickHouse for High-velocity Data Ingestion in Distributed Tables](https://chistadata.com/fine-tuning-data-ingestion-in-clickhouse-distributed-tables/)
