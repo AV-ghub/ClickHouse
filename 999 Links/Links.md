@@ -4,6 +4,9 @@
 [ClickHouse v24.10 Release Webinar](https://www.youtube.com/watch?v=AamIAjURp4U)  
 [Теория и практика использования ClickHouse в реальных приложениях. Александр Зайцев (2018г)](https://habr.com/ru/articles/512304/)  
 
+### Architecture
+[ClickHouse Parts and Partitions](https://chistadata.com/parts-and-partitions-in-clickhouse-part-i/)
+
 ### Rerfomance
 [The Secrets of ClickHouse Performance Optimizations at BDTC 2019](https://www.youtube.com/watch?v=ZOZQCQEtrz8)  
 
