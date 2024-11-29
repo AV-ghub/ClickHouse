@@ -25,3 +25,6 @@
 ### Rerformance & tune
 [The Secrets of ClickHouse Performance Optimizations at BDTC 2019](https://www.youtube.com/watch?v=ZOZQCQEtrz8)  
 [Tuning ClickHouse for High-velocity Data Ingestion in Distributed Tables](https://chistadata.com/fine-tuning-data-ingestion-in-clickhouse-distributed-tables/)
+
+### Practice
+[Наш опыт внедрения ClickHouse – аналитической CУБД](https://gs-studio.com/news-about-it/32777----clickhouse---c)
