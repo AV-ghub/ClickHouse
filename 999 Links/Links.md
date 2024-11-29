@@ -28,3 +28,4 @@
 
 ### Practice
 [Наш опыт внедрения ClickHouse – аналитической CУБД](https://gs-studio.com/news-about-it/32777----clickhouse---c)
+[Наш опыт внедрения ClickHouse – аналитической CУБД](https://github.com/AV-ghub/ClickHouse/blob/main/002%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0/003%20%D0%9D%D0%B0%D1%88%20%D0%BE%D0%BF%D1%8B%D1%82%20%D0%B2%D0%BD%D0%B5%D0%B4%D1%80%D0%B5%D0%BD%D0%B8%D1%8F%20ClickHouse%20%E2%80%93%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9%20C%D0%A3%D0%91%D0%94.md)
