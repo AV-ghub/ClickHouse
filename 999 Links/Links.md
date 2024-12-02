@@ -47,7 +47,7 @@
 
 ### Dev
 [How to implement `pivot` in clickhouse just like in dolphindb](https://stackoverflow.com/questions/56074216/how-to-implement-pivot-in-clickhouse-just-like-in-dolphindb)   
-[C# integration](https://clickhouse.com/integrations/csharp) 
+[C# integration](https://clickhouse.com/integrations/csharp)    
 [Processing JSON](https://clickhouse.com/docs/en/integrations/data-formats/json/overview)
 
 ### Util
