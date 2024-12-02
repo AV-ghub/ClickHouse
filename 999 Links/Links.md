@@ -45,7 +45,10 @@
 
 ### Dev
 [How to implement `pivot` in clickhouse just like in dolphindb](https://stackoverflow.com/questions/56074216/how-to-implement-pivot-in-clickhouse-just-like-in-dolphindb)   
+[C# integration](https://clickhouse.com/integrations/csharp)   
 
+### Util
+[ZooKeeper](https://zookeeper.apache.org/doc/r3.9.3/zookeeperOver.html)   
 
 
 
