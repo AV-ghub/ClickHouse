@@ -30,9 +30,10 @@
 [Testing the Performance of ClickHouse](https://clickhouse.com/blog/testing-the-performance-of-click-house)   
 [fiddle](https://fiddle.clickhouse.com/)
 
-### Rerformance & tune
+### Performance, tune & optimization
 [The Secrets of ClickHouse Performance Optimizations at BDTC 2019](https://www.youtube.com/watch?v=ZOZQCQEtrz8)  
-[Tuning ClickHouse for High-velocity Data Ingestion in Distributed Tables](https://chistadata.com/fine-tuning-data-ingestion-in-clickhouse-distributed-tables/)
+[Tuning ClickHouse for High-velocity Data Ingestion in Distributed Tables](https://chistadata.com/fine-tuning-data-ingestion-in-clickhouse-distributed-tables/)   
+[How to implement Bloom Filters in ClickHouse for Query Performance](https://chistadata.com/implementing-bloom-filters-in-clickhouse/)    
 
 ### Practice
 [Наш опыт внедрения ClickHouse – аналитической CУБД](https://gs-studio.com/news-about-it/32777----clickhouse---c)   
