@@ -42,6 +42,7 @@
 
 ### Admin
 [Creating an Admin User in ClickHouse](https://chistadata.com/knowledge-base/creating-an-admin-user-in-clickhouse/)   
+[Репликация данных](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication)   
 
 ### Dev
 [How to implement `pivot` in clickhouse just like in dolphindb](https://stackoverflow.com/questions/56074216/how-to-implement-pivot-in-clickhouse-just-like-in-dolphindb)   
