@@ -10,9 +10,10 @@
 [Vectorization vs. Compilation in Query Execution](https://15721.courses.cs.cmu.edu/spring2016/papers/p5-sompolski.pdf)
 
 ### Architecture
-[Обзор архитектуры ClickHouse](https://clickhouse.com/docs/ru/development/architecture#merge-tree)
+[Обзор архитектуры ClickHouse](https://clickhouse.com/docs/ru/development/architecture#merge-tree)  
 [ClickHouse Parts and Partitions](https://chistadata.com/parts-and-partitions-in-clickhouse-part-i/)   
 [ClickHouse Performance: Inside the Query Execution Pipeline](https://chistadata.com/inside-query-execution-pipeline-clickhouse/)   
+[CTO’s Guide to ColumnStores vs Row-based Databases for Real-time Analytics](https://chistadata.com/ctos-guide-to-clickhouse-columnstores/)
 
 ### Benchmarks
 [ClickBench — a Benchmark For Analytical DBMS](https://benchmark.clickhouse.com/)   
