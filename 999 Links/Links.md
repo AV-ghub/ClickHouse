@@ -36,7 +36,7 @@
 [How to implement Bloom Filters in ClickHouse for Query Performance](https://chistadata.com/implementing-bloom-filters-in-clickhouse/)    
 [Super charging your ClickHouse queries](https://clickhouse.com/blog/clickhouse-faster-queries-with-projections-and-primary-indexes)  
 [A Practical Introduction to Primary Indexes in ClickHouse](https://clickhouse.com/docs/en/optimize/sparse-primary-indexes)   [ --> Notes](https://github.com/AV-ghub/ClickHouse/blob/main/999%20Links/Notes/Performance%20and%20Optimizations.md)    
-[Understanding ClickHouse Data Skipping Indexes](https://clickhouse.com/docs/en/optimize/skipping-indexes)
+[Understanding ClickHouse Data Skipping Indexes](https://clickhouse.com/docs/en/optimize/skipping-indexes)   [ --> Notes](https://github.com/AV-ghub/ClickHouse/blob/main/999%20Links/Notes/Understanding%20ClickHouse%20Data%20Skipping%20Indexes.md)
 
 ### Practice
 [Наш опыт внедрения ClickHouse – аналитической CУБД](https://gs-studio.com/news-about-it/32777----clickhouse---c)   
