@@ -35,7 +35,7 @@
 [Tuning ClickHouse for High-velocity Data Ingestion in Distributed Tables](https://chistadata.com/fine-tuning-data-ingestion-in-clickhouse-distributed-tables/)   
 [How to implement Bloom Filters in ClickHouse for Query Performance](https://chistadata.com/implementing-bloom-filters-in-clickhouse/)    
 [Super charging your ClickHouse queries](https://clickhouse.com/blog/clickhouse-faster-queries-with-projections-and-primary-indexes)  
-[A Practical Introduction to Primary Indexes in ClickHouse](https://clickhouse.com/docs/en/optimize/sparse-primary-indexes)   [ --> Notes](https://github.com/AV-ghub/ClickHouse/blob/main/999%20Links/Notes/Performance%20and%20Optimizations.md)
+[A Practical Introduction to Primary Indexes in ClickHouse](https://clickhouse.com/docs/en/optimize/sparse-primary-indexes)   [ --> Notes](https://github.com/AV-ghub/ClickHouse/blob/main/999%20Links/Notes/Performance%20and%20Optimizations.md)    
 [Understanding ClickHouse Data Skipping Indexes](https://clickhouse.com/docs/en/optimize/skipping-indexes)
 
 ### Practice
