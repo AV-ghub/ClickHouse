@@ -7,6 +7,7 @@
 #### part 5 [Choosing the Right Join Algorithm](https://clickhouse.com/blog/clickhouse-fully-supports-joins-how-to-choose-the-right-algorithm-part5)
 
 #### Additional resources
+##### [ClickHouse Playground](https://sql.clickhouse.com/)
 [Schema Design](https://clickhouse.com/docs/en/data-modeling/schema-design)
 
 [Dictionary](https://clickhouse.com/docs/en/dictionary)
