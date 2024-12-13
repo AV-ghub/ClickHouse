@@ -15,6 +15,8 @@
 
 [Join (SQL)](https://en.wikipedia.org/wiki/Join_(SQL))
 
+[Category:Join algorithms](https://en.wikipedia.org/wiki/Category:Join_algorithms)
+
 [JOIN Clause](https://clickhouse.com/docs/en/sql-reference/statements/select/join#supported-types-of-join)
 
 [ASOF JOIN example](https://gist.github.com/tom-clickhouse/58eae026d0893444d9d02012f4adab7d)
