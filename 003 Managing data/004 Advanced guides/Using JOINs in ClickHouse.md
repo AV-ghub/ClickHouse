@@ -11,3 +11,6 @@
 
 [Dictionary](https://clickhouse.com/docs/en/dictionary)
 
+[Join (SQL)](https://en.wikipedia.org/wiki/Join_(SQL))
+
+[JOIN Clause](https://clickhouse.com/docs/en/sql-reference/statements/select/join#supported-types-of-join)
