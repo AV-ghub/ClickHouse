@@ -19,6 +19,8 @@
 
 [join_algorithm](https://clickhouse.com/docs/en/operations/settings/settings#join_algorithm)
 
+[Hash tables in ClickHouse and C++ Zero-cost Abstractions](https://clickhouse.com/blog/hash-tables-in-clickhouse-and-zero-cost-abstractions)
+
 [JOIN Clause](https://clickhouse.com/docs/en/sql-reference/statements/select/join#supported-types-of-join)
 
 [ASOF JOIN example](https://gist.github.com/tom-clickhouse/58eae026d0893444d9d02012f4adab7d)
