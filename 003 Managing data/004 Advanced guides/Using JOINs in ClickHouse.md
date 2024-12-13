@@ -17,6 +17,8 @@
 
 [JOIN Clause](https://clickhouse.com/docs/en/sql-reference/statements/select/join#supported-types-of-join)
 
+[ASOF JOIN example](https://gist.github.com/tom-clickhouse/58eae026d0893444d9d02012f4adab7d)
+
 ## Notes
 The LEFT OUTER JOIN behaves like INNER JOIN; plus, for non-matching left table rows, ClickHouse returns **default values** for the right table’s columns.  
 Note that ClickHouse can be configured to return NULLs instead of default values [join_use_nulls](https://clickhouse.com/docs/en/operations/settings/settings#join_use_nulls)   
