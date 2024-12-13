@@ -17,6 +17,8 @@
 
 [Category:Join algorithms](https://en.wikipedia.org/wiki/Category:Join_algorithms)
 
+[join_algorithm](https://clickhouse.com/docs/en/operations/settings/settings#join_algorithm)
+
 [JOIN Clause](https://clickhouse.com/docs/en/sql-reference/statements/select/join#supported-types-of-join)
 
 [ASOF JOIN example](https://gist.github.com/tom-clickhouse/58eae026d0893444d9d02012f4adab7d)
