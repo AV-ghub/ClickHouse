@@ -16,3 +16,8 @@
 [Join (SQL)](https://en.wikipedia.org/wiki/Join_(SQL))
 
 [JOIN Clause](https://clickhouse.com/docs/en/sql-reference/statements/select/join#supported-types-of-join)
+
+## Notes
+The LEFT OUTER JOIN behaves like INNER JOIN; plus, for non-matching left table rows, ClickHouse returns **default values** for the right table’s columns.  
+Note that ClickHouse can be configured to return NULLs instead of default values [join_use_nulls](https://clickhouse.com/docs/en/operations/settings/settings#join_use_nulls)   
+
