@@ -1,4 +1,4 @@
-[Using JOINs in ClickHouseUsing JOINs in ClickHouse](https://clickhouse.com/docs/en/guides/joining-tables)   
+[Using JOINs in ClickHouse](https://clickhouse.com/docs/en/guides/joining-tables)   
 
 #### part 1 [Join Types supported in ClickHouse](https://clickhouse.com/blog/clickhouse-fully-supports-joins-part1)
 #### part 2 [ClickHouse Joins Under the Hood - Hash Join, Parallel Hash Join, Grace Hash Join](https://clickhouse.com/blog/clickhouse-fully-supports-joins-hash-joins-part2)
