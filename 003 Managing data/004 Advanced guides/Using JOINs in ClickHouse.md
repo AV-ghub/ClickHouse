@@ -1,7 +1,7 @@
 [Using JOINs in ClickHouse](https://clickhouse.com/docs/en/guides/joining-tables)   
 
 ### [ClickHouse Playground](https://sql.clickhouse.com/)
-#### [imdb_large_generate (Secret)](https://gist.github.com/tom-clickhouse/5d391b45a1c19948ed6d43c87cf7e788)
+
 
 #### part 1 [Join Types supported in ClickHouse](https://clickhouse.com/blog/clickhouse-fully-supports-joins-part1)
 #### part 2 [ClickHouse Joins Under the Hood - Hash Join, Parallel Hash Join, Grace Hash Join](https://clickhouse.com/blog/clickhouse-fully-supports-joins-hash-joins-part2)
@@ -10,6 +10,9 @@
 #### part 5 [Choosing the Right Join Algorithm](https://clickhouse.com/blog/clickhouse-fully-supports-joins-how-to-choose-the-right-algorithm-part5)
 
 #### Additional resources
+##### [imdb_large_generate (Secret)](https://gist.github.com/tom-clickhouse/5d391b45a1c19948ed6d43c87cf7e788)
+##### [Using Dictionaries to Accelerate Queries](https://clickhouse.com/blog/faster-queries-dictionaries-clickhouse#choosing-a-layout)
+
 [Schema Design](https://clickhouse.com/docs/en/data-modeling/schema-design)
 
 [Dictionary](https://clickhouse.com/docs/en/dictionary)
