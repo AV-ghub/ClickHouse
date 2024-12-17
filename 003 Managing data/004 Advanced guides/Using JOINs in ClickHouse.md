@@ -13,6 +13,7 @@
 ##### [imdb_large_generate (Secret)](https://gist.github.com/tom-clickhouse/5d391b45a1c19948ed6d43c87cf7e788)
 ##### [Using Dictionaries to Accelerate Queries](https://clickhouse.com/blog/faster-queries-dictionaries-clickhouse#choosing-a-layout)
 ##### [Exploring massive, real-world data sets: 100+ Years of Weather Records in ClickHouse](https://clickhouse.com/blog/real-world-data-noaa-climate-data) 
+##### [Optimizing ClickHouse with Schemas and Codecs](https://clickhouse.com/blog/optimize-clickhouse-codecs-compression-schema)
 
 [Schema Design](https://clickhouse.com/docs/en/data-modeling/schema-design)
 
