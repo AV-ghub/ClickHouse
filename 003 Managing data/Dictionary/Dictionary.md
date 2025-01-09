@@ -10,3 +10,5 @@ Dictionaries can be used to speed up a specific type of JOIN: the [LEFT ANY type
 If this is the case, ClickHouse can exploit the dictionary to perform a **Direct Join**. 
 
 Dictionaries are usually held in memory ([ssd_cache](https://clickhouse.com/docs/en/sql-reference/dictionaries#ssd_cache) is the exception)
+
+We use dictionary at query time **to remove a join**.
