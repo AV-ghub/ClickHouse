@@ -12,3 +12,7 @@ If this is the case, ClickHouse can exploit the dictionary to perform a **Direct
 Dictionaries are usually held in memory ([ssd_cache](https://clickhouse.com/docs/en/sql-reference/dictionaries#ssd_cache) is the exception)
 
 We use dictionary at query time **to remove a join**.
+
+#### [Advanced Dictionary Topics](https://clickhouse.com/docs/en/dictionary#advanced-dictionary-topics)
+[Layouts](https://clickhouse.com/docs/en/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory)    
+[Choosing a Layout](https://clickhouse.com/blog/faster-queries-dictionaries-clickhouse#choosing-a-layout)
