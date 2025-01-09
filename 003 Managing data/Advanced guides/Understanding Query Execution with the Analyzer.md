@@ -2,4 +2,4 @@
 [Graph visio](https://dreampuf.github.io/GraphvizOnline)   
 [Performance introspection EXPLAIN clause](https://www.youtube.com/watch?v=hP6G2Nlz_cA)   
 [EXPLAIN Statement](https://clickhouse.com/docs/en/sql-reference/statements/explain#explain-syntax)   
-
+[Graph to pdf](https://github.com/AV-ghub/ClickHouse/blob/main/003%20Managing%20data/Advanced%20guides/Scripts.md#graph-to-pdf)    
