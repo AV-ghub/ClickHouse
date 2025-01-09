@@ -1,4 +1,4 @@
-#### values table function
+#### Values table function
 ```
 WITH
     left_table AS (SELECT * FROM VALUES('c UInt32', 1, 2, 3)),
