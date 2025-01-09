@@ -6,7 +6,7 @@ Note that ClickHouse can be configured to return NULLs instead of default values
 ## Resources
 [Using JOINs in ClickHouse](https://clickhouse.com/docs/en/guides/joining-tables)   
 
-### [ClickHouse Playground](https://sql.clickhouse.com/)
+#### [ClickHouse Playground](https://sql.clickhouse.com/)
 
 
 #### part 1 [Join Types supported in ClickHouse](https://clickhouse.com/blog/clickhouse-fully-supports-joins-part1)
