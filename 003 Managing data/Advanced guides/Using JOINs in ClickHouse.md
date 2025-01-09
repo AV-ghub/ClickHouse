@@ -33,8 +33,6 @@
 
 [Data structure for implementation of JOIN](https://github.com/ClickHouse/ClickHouse/blob/a129d07eb58caa153f4ddae4ef60c033f94e5965/src/Interpreters/HashJoin.h#L79)
 
-[Chaining Materialized Views in ClickHouse](https://clickhouse.com/blog/chaining-materialized-views)
-
 [Using Aggregate Combinators in ClickHouse](https://clickhouse.com/blog/aggregate-functions-combinators-in-clickhouse-for-arrays-maps-and-states)
 
 ## Notes
