@@ -1,3 +1,5 @@
+[Dictoinary](https://clickhouse.com/docs/en/dictionary)
+
 Dictionaries are useful for:
 
 * Improving the **performance** of queries, especially when used **with JOINs**
