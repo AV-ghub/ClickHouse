@@ -9,3 +9,12 @@ SELECT
 FROM left_table AS l
 LEFT ANY JOIN right_table AS r ON l.c = r.c;
 ```
+#### Graph to pdf
+```
+./clickhouse client --host ekyyw56ard.us-west-2.aws.clickhouse.cloud --secure --port 9440 --password  --database=imdb_large --query "
+EXPLAIN pipeline graph=1, compact=0
+SELECT *
+FROM actors a
+JOIN roles r ON a.id = r.actor_id
+SETTINGS max_threads = 2, join_algorithm = 'parallel_hash';" | dot -Tpdf > pipeline.pdf
+```
