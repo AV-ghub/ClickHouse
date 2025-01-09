@@ -16,3 +16,10 @@ We use dictionary at query time **to remove a join**.
 #### [Advanced Dictionary Topics](https://clickhouse.com/docs/en/dictionary#advanced-dictionary-topics)
 [Layouts](https://clickhouse.com/docs/en/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory)    
 [Choosing a Layout](https://clickhouse.com/blog/faster-queries-dictionaries-clickhouse#choosing-a-layout)
+
+#### Refreshing dictionaries
+LIFETIME is the update interval for the dictionary, with the values here causing a periodic reload at a random interval.   
+Random interval is necessary in order to distribute the load on the dictionary source when updating on a large number of servers.   
+Setting (LIFETIME(0)) prevents dictionaries from updating.   
+Dictionaries can be forcibly reloaded using the SYSTEM RELOAD DICTIONARY command.  
+
