@@ -18,3 +18,9 @@ FROM actors a
 JOIN roles r ON a.id = r.actor_id
 SETTINGS max_threads = 2, join_algorithm = 'parallel_hash';" | dot -Tpdf > pipeline.pdf
 ```
+#### Memory consumed by the dictionary
+```
+SELECT formatReadableSize(bytes_allocated) AS size
+FROM system.dictionaries
+WHERE name = 'votes_dict'
+```
