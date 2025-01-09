@@ -33,8 +33,6 @@
 
 [Data structure for implementation of JOIN](https://github.com/ClickHouse/ClickHouse/blob/a129d07eb58caa153f4ddae4ef60c033f94e5965/src/Interpreters/HashJoin.h#L79)
 
-[Using Aggregate Combinators in ClickHouse](https://clickhouse.com/blog/aggregate-functions-combinators-in-clickhouse-for-arrays-maps-and-states)
-
 ## Notes
 The LEFT OUTER JOIN behaves like INNER JOIN; plus, for non-matching left table rows, ClickHouse returns **default values** for the right table’s columns.  
 Note that ClickHouse can be configured to return NULLs instead of default values [join_use_nulls](https://clickhouse.com/docs/en/operations/settings/settings#join_use_nulls)   
