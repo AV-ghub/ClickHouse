@@ -24,3 +24,7 @@ Setting (LIFETIME(0)) prevents dictionaries from updating.
 Dictionaries can be forcibly reloaded using the SYSTEM RELOAD DICTIONARY command.  
 
 For database sources such as **ClickHouse** and **Postgres**, you can set up a query that will update the dictionaries only if they really changed (the response of the query determines this), rather than at a periodic interval. [Further details](https://clickhouse.com/docs/en/sql-reference/dictionaries#refreshing-dictionary-data-using-lifetime)
+
+#### Additional resources
+[Using Dictionaries to Accelerate Queries](https://clickhouse.com/blog/faster-queries-dictionaries-clickhouse)
+
