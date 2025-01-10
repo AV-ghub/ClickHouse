@@ -5,7 +5,7 @@ If several disks are available, the “hot” data may be located on fast disks 
 Data part is the minimum movable unit for MergeTree-engine tables. The data belonging to one part are stored on one disk. Data parts can be moved between disks in the background (according to user settings) as well as by means of the ALTER queries.  
 The names given to the described entities can be found in
 ```
-:) select * from system.disks\G
+select * from system.disks\G
 ──────
 name:                default
 path:                /var/lib/clickhouse/
