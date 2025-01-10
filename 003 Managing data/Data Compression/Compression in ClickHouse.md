@@ -1,4 +1,4 @@
-### [Compression in ClickHouse](https://clickhouse.com/docs/en/data-compression/compression-in-clickhouse)
+## [Compression in ClickHouse](https://clickhouse.com/docs/en/data-compression/compression-in-clickhouse)
 #### Choosing the right column compression codec
 With column compression codecs, we can change the algorithm (and its settings) used to encode and compress **each column**.  
 Typically, encodings are applied first before compression is used.      
@@ -37,4 +37,5 @@ ORDER BY (PostTypeId, toDate(CreationDate), CommentCount)
 ### Admin
 [Compressed and uncompressed size of each column](https://github.com/AV-ghub/ClickHouse/blob/main/003%20Managing%20data/Advanced%20guides/Scripts.md#compressed-and-uncompressed-size-of-each-column)
 
+## [Compression modes](https://clickhouse.com/docs/en/data-compression/compression-modes)
 
