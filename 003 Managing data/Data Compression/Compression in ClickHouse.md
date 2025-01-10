@@ -15,6 +15,19 @@ CODEC(Delta, Default).
 #### [Specialized Codecs (Delta, DoubleDelta, GCD, Gorilla, FPC, T64)](https://clickhouse.com/docs/en/sql-reference/statements/create/table#specialized-codecs)
 These codecs are designed to make compression more effective by **exploiting specific features of the data**.    
 Some of these codecs do not compress data themselves, they instead preprocess the data such that **a second compression stage** using a general-purpose codec can achieve a higher data compression rate.
+```
+CREATE TABLE posts_v4
+(
+    `Id` Int32 CODEC(Delta, ZSTD),
+    ...
+    `ViewCount` UInt32 CODEC(Delta, ZSTD),
+    ...
+    `AnswerCount` UInt16 CODEC(Delta, ZSTD),
+    ...
+)
+ENGINE = MergeTree
+ORDER BY (PostTypeId, toDate(CreationDate), CommentCount)
+```
 
 ### Additional resources
 [Optimizing ClickHouse with Schemas and Codecs](https://clickhouse.com/blog/optimize-clickhouse-codecs-compression-schema)   
