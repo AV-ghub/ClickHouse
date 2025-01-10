@@ -10,13 +10,14 @@ For example, this file defines disk named backups and then adds that disk to the
         <disks>
             <backups>
                 <type>local</type>
-                <path>/backups/</path>
+                <path>/var/lib/clickhouse/backups/</path>
             </backups>
         </disks>
     </storage_configuration>
     <backups>
         <allowed_disk>backups</allowed_disk>
-        <allowed_path>/backups/</allowed_path>
+        <allowed_path>/var/lib/clickhouse/backups/</allowed_path>
     </backups>
 </clickhouse>
 ```
+> **Path should be absolute!!!**
