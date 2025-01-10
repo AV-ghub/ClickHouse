@@ -3,4 +3,4 @@ ClickHouse protocol supports **data blocks compression** with checksums.
 
 
 ### Additional resources
-[Zstandard](https://facebook.github.io/zstd/#benchmarks)
+[Zstandard](https://facebook.github.io/zstd)
