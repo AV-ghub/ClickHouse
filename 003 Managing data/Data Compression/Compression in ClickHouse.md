@@ -36,6 +36,3 @@ ORDER BY (PostTypeId, toDate(CreationDate), CommentCount)
 [High Throughput Compression of Double-Precision Floating-Point Data](https://userweb.cs.txstate.edu/~burtscher/papers/dcc07a.pdf)    
 ### Admin
 [Compressed and uncompressed size of each column](https://github.com/AV-ghub/ClickHouse/blob/main/003%20Managing%20data/Advanced%20guides/Scripts.md#compressed-and-uncompressed-size-of-each-column)
-
-## [Compression modes](https://clickhouse.com/docs/en/data-compression/compression-modes)
-
