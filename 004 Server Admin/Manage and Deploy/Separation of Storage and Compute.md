@@ -6,10 +6,6 @@ Data part is the minimum movable unit for MergeTree-engine tables. The data belo
 The names given to the described entities can be found in the system.disks
 ```
 :) select * from system.disks\G
-SELECT *
-FROM system.disks
-Query id: b19bbea5-b0cb-4179-a62a-3fb6a4fda06e
-Row 1:
 ──────
 name:                default
 path:                /var/lib/clickhouse/
