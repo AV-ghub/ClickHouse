@@ -12,7 +12,7 @@ Codecs can be combined in a pipeline, for example
 ```
 CODEC(Delta, Default).
 ```
-#### [Specialized Codecs](https://clickhouse.com/docs/en/sql-reference/statements/create/table#specialized-codecs)
+#### [Specialized Codecs (Delta, DoubleDelta, GCD, Gorilla, FPC, T64)](https://clickhouse.com/docs/en/sql-reference/statements/create/table#specialized-codecs)
 These codecs are designed to make compression more effective by **exploiting specific features of the data**.    
 Some of these codecs do not compress data themselves, they instead preprocess the data such that **a second compression stage** using a general-purpose codec can achieve a higher data compression rate.
 
