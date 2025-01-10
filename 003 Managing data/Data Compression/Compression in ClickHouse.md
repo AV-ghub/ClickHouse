@@ -18,4 +18,5 @@ Some of these codecs do not compress data themselves, they instead preprocess th
 
 ### Additional resources
 [Optimizing ClickHouse with Schemas and Codecs](https://clickhouse.com/blog/optimize-clickhouse-codecs-compression-schema)   
-[Column Compression Codecs](https://clickhouse.com/docs/en/sql-reference/statements/create/table#column_compression_codec)
+[Column Compression Codecs](https://clickhouse.com/docs/en/sql-reference/statements/create/table#column_compression_codec)    
+[Gorilla: A Fast, Scalable, In-Memory Time Series Database](http://www.vldb.org/pvldb/vol8/p1816-teller.pdf)
