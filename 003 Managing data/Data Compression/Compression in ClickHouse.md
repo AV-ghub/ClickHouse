@@ -4,6 +4,17 @@ With column compression codecs, we can change the algorithm (and its settings) u
 Typically, encodings are applied first before compression is used.      
 For MergeTree-engine family you can change the **default compression method** in the [compression](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#compression) section of a server configuration.For MergeTree-engine family you can change the default compression method in the compression section of a server configuration.
 
+To remove current CODEC from the column and use default compression from config.xml:
+```
+ALTER TABLE codec_example MODIFY COLUMN float_value CODEC(Default);
+```
+Codecs can be combined in a pipeline, for example
+```
+CODEC(Delta, Default).
+```
+#### [Specialized Codecs](https://clickhouse.com/docs/en/sql-reference/statements/create/table#specialized-codecs)
+These codecs are designed to make compression more effective by **exploiting specific features of the data**.    
+Some of these codecs do not compress data themselves, they instead preprocess the data such that **a second compression stage** using a general-purpose codec can achieve a higher data compression rate.
 
 ### Additional resources
 [Optimizing ClickHouse with Schemas and Codecs](https://clickhouse.com/blog/optimize-clickhouse-codecs-compression-schema)   
