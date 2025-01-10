@@ -1,4 +1,4 @@
-[Install](https://clickhouse.com/docs/ru/getting-started/tutorial)
+## [Install](https://clickhouse.com/docs/ru/getting-started/tutorial)
 
 Чтобы законнектиться снаружи, в **/etc/clickhouse-server/config.xml** раскомментировать строку
 ```shell
@@ -29,3 +29,7 @@
 Существует возможность выполнять сортировку во внешней памяти (с созданием временных файлов на диске), если оперативной памяти не хватает. Для этого предназначена настройка **max_bytes_before_external_sort**. Если она выставлена в 0 (по умолчанию), то внешняя сортировка выключена. Если она включена, то при достижении объёмом данных для сортировки указанного количества байт, накопленные данные будут отсортированы и сброшены во временный файл. Файлы записываются в директорию **/var/lib/clickhouse/tmp/** (по умолчанию, может быть изменено с помощью параметра **tmp_path**) в конфиге.
 
 > Когда настройка [optimize_read_in_order](https://clickhouse.com/docs/ru/operations/settings/settings#optimize_read_in_order) отключена, при выполнении запросов SELECT табличные индексы не используются.
+
+
+## [Установка и использование ClickHouse на Linux](https://www.dmosk.ru/miniinstruktions.php?mini=clickhouse-linux)
+
