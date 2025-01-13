@@ -79,5 +79,10 @@ and arrayElement(ProfileEvents, 'QueryCacheHits') = 1
 format vertical
 ```
 
+Users can also **clear the cache's content manually** using the statement 
+```
+SYSTEM DROP QUERY CACHE
+```
+
 
 
