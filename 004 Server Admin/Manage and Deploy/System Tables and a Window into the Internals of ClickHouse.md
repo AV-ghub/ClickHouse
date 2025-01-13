@@ -7,7 +7,7 @@ The complete list of system tables is accessible via the
 SHOW TABLES FROM system
 ```
 ### [Hot tips for querying system tables](https://clickhouse.com/blog/clickhouse-debugging-issues-with-system-tables#hot-tips-for-querying-system-tables)
-#### What settings were changed from the default value
+#### [What settings were changed from the default value](https://clickhouse.com/blog/clickhouse-debugging-issues-with-system-tables#what-settings-were-changed-from-the-default-value)
 ```
 SELECT *
 FROM system.settings
