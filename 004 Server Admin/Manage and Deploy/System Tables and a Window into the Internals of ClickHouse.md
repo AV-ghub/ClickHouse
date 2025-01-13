@@ -202,6 +202,21 @@ WHERE table = 'dbo_calls'
 GROUP BY name
 ORDER BY sum(data_compressed_bytes) DESC
 ```
+#### [What is the status of the parts that are moving](https://clickhouse.com/blog/clickhouse-debugging-issues-with-system-tables#what-is-the-status-of-the-parts-that-are-moving)
+```
+SELECT * FROM system.moves FORMAT Vertical
+```
+#### [Querying system tables from all nodes in a cluster](https://clickhouse.com/blog/clickhouse-debugging-issues-with-system-tables#querying-system-tables-from-all-nodes-in-a-cluster)
+```
+SELECT
+    hostName(),
+    is_initial_query,
+    query_id,
+    initial_query_id,
+    query
+FROM clusterAllReplicas('default', system.processes)
+FORMAT Vertical
+```
 
 ## Additional resources
 [System Tables](https://clickhouse.com/docs/en/operations/system-tables)   
