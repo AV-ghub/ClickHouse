@@ -33,6 +33,7 @@ ORDER BY (PostTypeId, toDate(CreationDate), CommentCount)
 [Optimizing ClickHouse with Schemas and Codecs](https://clickhouse.com/blog/optimize-clickhouse-codecs-compression-schema)   
 [Column Compression Codecs](https://clickhouse.com/docs/en/sql-reference/statements/create/table#column_compression_codec)    
 [Gorilla: A Fast, Scalable, In-Memory Time Series Database](http://www.vldb.org/pvldb/vol8/p1816-teller.pdf)    
-[High Throughput Compression of Double-Precision Floating-Point Data](https://userweb.cs.txstate.edu/~burtscher/papers/dcc07a.pdf)    
+[High Throughput Compression of Double-Precision Floating-Point Data](https://userweb.cs.txstate.edu/~burtscher/papers/dcc07a.pdf)     
+[Smaller and faster data compression with Zstandard](https://engineering.fb.com/2016/08/31/core-infra/smaller-and-faster-data-compression-with-zstandard/)   
 ### Admin
 [Compressed and uncompressed size of each column](https://github.com/AV-ghub/ClickHouse/blob/main/003%20Managing%20data/Advanced%20guides/Scripts.md#compressed-and-uncompressed-size-of-each-column)
