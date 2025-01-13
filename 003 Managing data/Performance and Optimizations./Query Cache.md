@@ -56,3 +56,13 @@ key_hash:    18059452253961218132
 
 1 row in set. Elapsed: 0.002 sec.
 ```
+
+To quickly points to any issue run the query again after executing **SET send_logs_level = 'trace'**.
+```
+2023.01.29 12:15:26.592519 [ 1371064 ] {a645c5b7-09a2-456c-bc8b-c506828d3b69}  QueryCache: Skipped insert (query result too big), new_entry_size_in_bytes: 1328640,
+new_entry_size_in_rows: 50
+...
+```
+
+
+
