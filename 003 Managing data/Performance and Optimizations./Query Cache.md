@@ -64,7 +64,20 @@ You'll see somthing like that one for further investigation:
 new_entry_size_in_rows: 50
 ...
 ```
-
+### [Using logs and settings](https://clickhouse.com/blog/introduction-to-the-clickhouse-query-cache-and-design#using-logs-and-settings)
+We can also investigate the query log for query cache hits and misses and look at system.query_cache again:
+```
+SELECT  query, ProfileEvents['QueryCacheHits']
+FROM system.query_log
+WHERE (type = 'QueryFinish') AND (query LIKE '%select toDate(starttime), max(remotephonenumber), count()%')
+```
+```
+:) SELECT  distinct query, ProfileEvents['QueryCacheHits']
+FROM system.query_log
+WHERE (type = 'QueryFinish') AND (query LIKE '%select toDate(starttime), max(remotephonenumber), count()%')
+and arrayElement(ProfileEvents, 'QueryCacheHits') = 1
+format vertical
+```
 
 
 
