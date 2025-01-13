@@ -14,4 +14,45 @@ SETTINGS use_query_cache = true
 
 ## Additional resources
 ### [Introducing the ClickHouse Query Cache](https://clickhouse.com/blog/introduction-to-the-clickhouse-query-cache-and-design)
+```
+:) select toDate(starttime), max(remotephonenumber), count()
+from dbo_calls
+where remotephonenumber like '99%'
+group by toDate(starttime)
+SETTINGS use_query_cache = true, query_cache_ttl = 3000
 
+5 rows in set. Elapsed: 0.253 sec. Processed 30.01 million rows, 602.40 MB (118.57 million rows/s., 2.38 GB/s.)
+Peak memory usage: 2.66 MiB.
+```
+```
+SELECT
+    toDate(starttime),
+    max(remotephonenumber),
+    count()
+FROM dbo_calls
+WHERE remotephonenumber LIKE '99%'
+GROUP BY toDate(starttime)
+SETTINGS use_query_cache = true
+...
+5 rows in set. Elapsed: 0.002 sec.
+```
+```
+SELECT *
+FROM system.query_cache
+FORMAT vertical
+
+Query id: f3184c8f-c2ff-44e5-8c8f-de5db46ac278
+
+Row 1:
+──────
+query:       SELECT toDate(starttime), max(remotephonenumber), count() FROM dbo_calls WHERE remotephonenumber LIKE '99%' GROUP BY toDate(starttime) SETTINGS use_query_cache = true, query_cache_ttl = 3000
+result_size: 592
+tag:
+stale:       0
+shared:      0
+compressed:  1
+expires_at:  2025-01-13 19:50:24
+key_hash:    18059452253961218132
+
+1 row in set. Elapsed: 0.002 sec.
+```
