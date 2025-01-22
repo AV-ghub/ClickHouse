@@ -9,6 +9,7 @@
 [Altinity® Knowledge Base for ClickHouse®](https://kb.altinity.com/)   
 [Дом, милый дом: нюансы работы с ClickHouse. Часть 1](https://habr.com/ru/companies/nixys/articles/801029/)  
 [Дом, милый дом: нюансы работы с ClickHouse. Часть 2](https://habr.com/ru/companies/nixys/articles/826850/)  
+[Заметки про ClickHouse. Tutorial 101 — Большая подборка информации](https://datafinder.ru/products/zametki-pro-clickhouse-tutorial-101-bolshaya-podborka-informacii)   
 
 ### Theory
 [Vectorization vs. Compilation in Query Execution](https://15721.courses.cs.cmu.edu/spring2016/papers/p5-sompolski.pdf)
