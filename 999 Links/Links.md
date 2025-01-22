@@ -5,7 +5,8 @@
 [Теория и практика использования ClickHouse в реальных приложениях. Александр Зайцев (2018г)](https://habr.com/ru/articles/512304/) 
 [Краеугольные камни ClickHouse](https://habr.com/ru/companies/wildberries/articles/821865/)   
 [Why is ClickHouse so fast?](https://chistadata.com/why-clickhouse-is-so-fast/)   
-[ClickHouse Parts and Partitions: Part 1](https://chistadata.com/parts-and-partitions-in-clickhouse-part-i/)   
+[ClickHouse Parts and Partitions: Part 1](https://chistadata.com/parts-and-partitions-in-clickhouse-part-i/)  
+[Altinity® Knowledge Base for ClickHouse®](https://kb.altinity.com/)   
 
 ### Theory
 [Vectorization vs. Compilation in Query Execution](https://15721.courses.cs.cmu.edu/spring2016/papers/p5-sompolski.pdf)
