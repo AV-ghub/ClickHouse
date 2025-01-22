@@ -11,6 +11,11 @@
 [Дом, милый дом: нюансы работы с ClickHouse. Часть 2](https://habr.com/ru/companies/nixys/articles/826850/)  
 [Заметки про ClickHouse. Tutorial 101 — Большая подборка информации](https://datafinder.ru/products/zametki-pro-clickhouse-tutorial-101-bolshaya-podborka-informacii)   
 
+#### Video
+[Leaving The Two Tier Architecture Behind by Hannes Muehleisen (Dijkstra Award 2024)](https://www.youtube.com/playlist?list=PLO3lfQbpDVI-hyw4MyqxEk3rDHw95SzxJ)   
+[ClickHouse тормозит / Кирилл Шваков (TrafficStars)](https://www.youtube.com/watch?v=efRryvtKlq0&list=PLO3lfQbpDVI-hyw4MyqxEk3rDHw95SzxJ&index=45&t=201s)   
+
+
 ### Theory
 [Vectorization vs. Compilation in Query Execution](https://15721.courses.cs.cmu.edu/spring2016/papers/p5-sompolski.pdf)
 
