@@ -7,6 +7,8 @@
 [Why is ClickHouse so fast?](https://chistadata.com/why-clickhouse-is-so-fast/)   
 [ClickHouse Parts and Partitions: Part 1](https://chistadata.com/parts-and-partitions-in-clickhouse-part-i/)  
 [Altinity® Knowledge Base for ClickHouse®](https://kb.altinity.com/)   
+[Дом, милый дом: нюансы работы с ClickHouse. Часть 1](https://habr.com/ru/companies/nixys/articles/801029/)  
+[Дом, милый дом: нюансы работы с ClickHouse. Часть 2](https://habr.com/ru/companies/nixys/articles/826850/)  
 
 ### Theory
 [Vectorization vs. Compilation in Query Execution](https://15721.courses.cs.cmu.edu/spring2016/papers/p5-sompolski.pdf)
