@@ -202,6 +202,14 @@ WHERE table = 'dbo_calls'
 GROUP BY name
 ORDER BY sum(data_compressed_bytes) DESC
 ```
+#### [Getting materialized view size on disk](https://clickhouse.com/blog/using-materialized-views-in-clickhouse#getting-materialized-view-size-on-disk)
+```
+SELECT
+    rows,
+    formatReadableSize(total_bytes) AS total_bytes_on_disk
+FROM system.tables
+WHERE table = 'wikistat_top_projects'
+```
 #### [What is the status of the parts that are moving](https://clickhouse.com/blog/clickhouse-debugging-issues-with-system-tables#what-is-the-status-of-the-parts-that-are-moving)
 ```
 SELECT * FROM system.moves FORMAT Vertical
