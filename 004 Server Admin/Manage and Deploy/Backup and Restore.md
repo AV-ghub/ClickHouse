@@ -27,6 +27,9 @@ For example, this file defines disk named backups and then adds that disk to the
 > **Check for syntax errors here**   
 > Finally, check that the preprocessed configuration is being written and contains the changes you've made. It is located in the preprocessed_configs in the data directory, e.g., /var/lib/clickhouse/preprocessed_configs.   
 > [src](https://github.com/ClickHouse/ClickHouse/issues/54966#issuecomment-1732803282)
+> if some exists - you`ll see `em as they are loaded by clickhouse-server inside preprocessed_configs text
+
+> **Restart service** via ```systemctl restart clickhouse-server```
 
 #### Additional resources
 [Clickhouse backup to disk problem backups.allowed_disk configuration parameter is not set](https://stackoverflow.com/questions/77296018/clickhouse-backup-to-disk-problem-backups-allowed-disk-configuration-parameter)   
