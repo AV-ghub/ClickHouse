@@ -30,6 +30,39 @@
 
 > Когда настройка [optimize_read_in_order](https://clickhouse.com/docs/ru/operations/settings/settings#optimize_read_in_order) отключена, при выполнении запросов SELECT табличные индексы не используются.
 
+## [Перемещение каталога данных](https://stackoverflow.com/a/72852943)
+#### Остановка и перемещение
+```
+$ systemctl stop clickhouse-server
+or
+$ /etc/init.d/clickhouse-server stop --now
+$ systemctl status clickhouse-server
+$ sudo cp -a /var/lib/clickhouse /home/data/clickhouse
+$ sudo mv /var/lib/clickhouse /var/lib/clickhouse_bak
+
+cd /etc/clickhouse-server
+sudo nano config.xml
+```
+#### Корректировка
+```
+/var/lib/ -> /home/data/
+/var/lib/clickhouse/ -> /home/data/clickhouse/
+```
+#### Старт сервиса
+```
+$ systemctl start clickhouse-server --now
+$ systemctl status clickhouse-server
+```
+#### Зачистка
+```
+sudo rm -Rf /var/lib/clickhouse_bak
+```
+
+
+
+
+
+
 
 ## [Установка и использование ClickHouse на Linux](https://www.dmosk.ru/miniinstruktions.php?mini=clickhouse-linux)
 
