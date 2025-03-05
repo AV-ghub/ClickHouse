@@ -41,6 +41,7 @@ $ sudo cp -a /var/lib/clickhouse /home/data
 $ sudo mv /var/lib/clickhouse /var/lib/clickhouse_bak
 
 cd /etc/clickhouse-server
+sudo cp config.xml config.xml.bak
 sudo nano config.xml
 ```
 #### Корректировка
