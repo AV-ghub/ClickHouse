@@ -37,7 +37,7 @@ $ systemctl stop clickhouse-server
 or
 $ /etc/init.d/clickhouse-server stop --now
 $ systemctl status clickhouse-server
-$ sudo cp -a /var/lib/clickhouse /home/data/clickhouse
+$ sudo cp -a /var/lib/clickhouse/ /home/data/clickhouse/
 $ sudo mv /var/lib/clickhouse /var/lib/clickhouse_bak
 
 cd /etc/clickhouse-server
