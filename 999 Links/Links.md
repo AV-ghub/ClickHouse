@@ -9,7 +9,9 @@
 [Altinity® Knowledge Base for ClickHouse®](https://kb.altinity.com/)   
 [Дом, милый дом: нюансы работы с ClickHouse. Часть 1](https://habr.com/ru/companies/nixys/articles/801029/)  
 [Дом, милый дом: нюансы работы с ClickHouse. Часть 2](https://habr.com/ru/companies/nixys/articles/826850/)  
-[Заметки про ClickHouse. Tutorial 101 — Большая подборка информации](https://datafinder.ru/products/zametki-pro-clickhouse-tutorial-101-bolshaya-podborka-informacii)   
+[Заметки про ClickHouse. Tutorial 101 — Большая подборка информации](https://datafinder.ru/products/zametki-pro-clickhouse-tutorial-101-bolshaya-podborka-informacii)     
+[From ETL to CDC](https://github.com/bvt123/SCH)   
+[Boris Tyshkevich](https://github.com/bvt123)
 
 #### Video
 [Leaving The Two Tier Architecture Behind by Hannes Muehleisen (Dijkstra Award 2024)](https://www.youtube.com/playlist?list=PLO3lfQbpDVI-hyw4MyqxEk3rDHw95SzxJ)   
