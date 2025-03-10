@@ -9,15 +9,17 @@ Configure multiple disks
 First, we need to list all of our local disks in configuration, so Clickhouse knows what it can work with. Prefered way is to create new xml file under /etc/clickhouse-server/config.d directory (disks.xml in our case). Let’s say we have 3 local storage devices (disks), one default (used by the system already) and two that we want to use in Clickhouse.
 
 Before adding disks to Clickhouse, we should create data (named clickhouse in our case) folder and grant access to clickhouse user to it:
-
+```
 mkdir /mnt/disk2/clickhouse
 chown clickhouse:clickhouse /mnt/disk2/clickhouse
 mkdir /mnt/disk3/clickhouse
 chown clickhouse:clickhouse /mnt/disk3/clickhouse
 /mnt/disk2/clickhouse — folder to be used by Clickhouse on this disk,
 clickhouse:clickhouse — make sure this new folder is accessible to Clickhouse.
-Now we can register our disks using the following configuration (in /etc/clickhouse-server/config.d/disks.xml file):
+```
 
+Now we can register our disks using the following configuration (in /etc/clickhouse-server/config.d/disks.xml file):
+```
 <clickhouse>
   <storage_configuration>
     <disks>
@@ -34,8 +36,10 @@ Now we can register our disks using the following configuration (in /etc/clickho
 <type>local</type> — type of device is local disk,
 /mnt/disk2/clickhouse/ — path to by used by Clickhouse to storage data (mention the closing / used in path),
 <d2_main> — policy name for the second storage device, so we can use it for tables.
-No need to restart Clickhouse server, since it’s gonna read configuration updates and automatically load it in background. To make sure disks are available to Clickhouse we can look at system.disks table:
+```
 
+No need to restart Clickhouse server, since it’s gonna read configuration updates and automatically load it in background. To make sure disks are available to Clickhouse we can look at system.disks table:
+```
 SELECT * FROM system.disks\G
 Row 1:
 ──────
@@ -47,13 +51,16 @@ Row 2:
 ──────
 name:             d3
 path:             /mnt/disk3/clickhouse/
-...
+```
+
 Using different disks for different tables
 Now we can specify which disk we want to store our table to while creating it:
-
+```
 CREATE TABLE some_table ( `some_column` String, )
 ENGINE = MergeTree ORDER BY uuid
 SETTINGS storage_policy = 'd3_main'
 storage_policy — allows setting custom storage policy for the table,
 d3_main — in our case we want Clickhouse to put this table on disk3.
+```
+
 That’s it. Now Clickhouse will automatically use disk3 to write/read some_table data. Note, that Clickhouse can automatically move data between disks accordingly to “hot/cold” storage policies.
