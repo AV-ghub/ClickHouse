@@ -66,7 +66,7 @@ Limits the total number of parts in a table. If this limit is exceeded, ClickHou
 
 Limits the number of partitions that can be read in a single query. This indirectly affects how large parts can grow within a partition.
 
-##Practical Recommendations
+## Practical Recommendations
 Avoid too many small parts: Too many small parts can degrade query performance and increase merge overhead. Use larger insert batches to create fewer, larger parts.
 
 Monitor part sizes: Use the system.parts table to monitor part sizes and merge behavior:
