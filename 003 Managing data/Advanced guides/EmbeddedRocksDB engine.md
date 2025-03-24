@@ -99,11 +99,13 @@ Unlike ReplicatedMergeTree, EmbeddedRocksDB does not support replication out-of-
 Use external tools (e.g., Kafka) for replication.
 
 ## Comparison with Other Engines
-Engine	            Best For	Update Frequency	Point Lookups	Analytics   
-EmbeddedRocksDB	    Frequent updates, key-value	⭐⭐⭐⭐⭐	⭐⭐⭐⭐⭐	⭐  
-ReplacingMergeTree	Eventually consistent updates	⭐⭐⭐	⭐⭐	⭐⭐⭐⭐⭐  
-MergeTree	          Bulk inserts, analytics	⭐	⭐	⭐⭐⭐⭐⭐  
-Memory	            Temporary data, caching	⭐⭐⭐⭐	⭐⭐⭐⭐⭐	⭐⭐  
+```
+Engine              Best For	                   Update Frequency	Point Lookups	Analytics   
+EmbeddedRocksDB     Frequent updates, key-value    ⭐⭐⭐⭐⭐	    ⭐⭐⭐⭐⭐	⭐  
+ReplacingMergeTree  Eventually consistent updates  ⭐⭐⭐	        ⭐⭐	        ⭐⭐⭐⭐⭐  
+MergeTree           Bulk inserts, analytics	       ⭐	            ⭐	            ⭐⭐⭐⭐⭐  
+Memory              Temporary data, caching        ⭐⭐⭐⭐	    ⭐⭐⭐⭐      ⭐⭐
+```
 
 ### Advanced Configuration
 Configure RocksDB settings in config.xml or per-table:
