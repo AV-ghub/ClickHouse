@@ -8,7 +8,7 @@ Both caches can be manually dropped with a [SYSTEM DROP CACHE](https://clickhous
 ```
 … SETTINGS enable_filesystem_cache=0, use_query_cache=0;
 ```
-
+### [use_query_cache](https://clickhouse.com/docs/operations/query-cache#configuration-settings-and-usage)
 ```
 SELECT some_expensive_calculation(column_1, column_2)
 FROM table
