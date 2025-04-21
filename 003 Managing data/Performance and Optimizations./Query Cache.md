@@ -1,6 +1,10 @@
 ## [Query Cache](https://clickhouse.com/docs/en/operations/query-cache)
 
-[Disable both caches](https://clickhouse.com/blog/clickhouse_vs_elasticsearch_the_billion_row_matchup#:~:text=Like%20Elasticsearch%2C%20ClickHouse%20utilizes,enable_filesystem_cache%3D0%2C%20use_query_cache%3D0%3B) per query with the query’s SETTINGS clause:
+ClickHouse utilizes the OS filesystem cache and a [query cache](https://clickhouse.com/docs/en/operations/query-cache) for query processing.
+
+Both caches can be manually dropped with a [SYSTEM DROP CACHE](https://clickhouse.com/docs/en/sql-reference/statements/system) statement.
+
+[Disable both caches](https://clickhouse.com/blog/clickhouse_vs_elasticsearch_the_billion_row_matchup#clickhouse-2) per query with the query’s SETTINGS clause:
 ```
 … SETTINGS enable_filesystem_cache=0, use_query_cache=0;
 ```
