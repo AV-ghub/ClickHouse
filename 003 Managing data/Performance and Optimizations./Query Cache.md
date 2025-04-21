@@ -2,7 +2,7 @@
 
 ClickHouse utilizes the OS filesystem cache and a [query cache](https://clickhouse.com/docs/en/operations/query-cache) for query processing.
 
-Both caches can be manually dropped with a [SYSTEM DROP CACHE](https://clickhouse.com/docs/en/sql-reference/statements/system) statement.
+Both caches can be manually dropped with a [SYSTEM DROP CACHE](https://clickhouse.com/docs/sql-reference/statements/system#drop-query-cache) statement.
 
 [Disable both caches](https://clickhouse.com/blog/clickhouse_vs_elasticsearch_the_billion_row_matchup#clickhouse-2:~:text=simple%20process.-,ClickHouse,-%23) per query with the query’s SETTINGS clause:
 ```
