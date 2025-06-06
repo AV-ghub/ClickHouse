@@ -67,92 +67,9 @@ PeerDB автоматически создает таблицы в ClickHouse с
 
 ---
 
-## 🏗️ Настройка PeerDB для локальной интеграции
+## 🏗️ Настройка [PeerDB](https://github.com/PeerDB-io/peerdb?tab=readme-ov-file) для локальной интеграции
 
 Для настройки PeerDB в локальной среде с PostgreSQL и ClickHouse выполните следующие шаги:
-
-### 1. [Установите PeerDB](https://docs.peerdb.io/quickstart/quickstart)
-
-```bash
-git clone --recursive https://github.com/PeerDB-io/peerdb.git
-cd peerdb
-
-# Run docker containers: peerdb-server, postgres as catalog, temporal.
-# This might take a few minutes, so get a cup of coffee! :)
-./run-peerdb.sh
-```
-
-### 2. **Настройте PostgreSQL:**
-
-   * Создайте публикацию для логической репликации:
-
-     ```sql
-     CREATE PUBLICATION peerdb_publication FOR ALL TABLES;
-     ```
-   * Создайте репликационный слот:
-
-     ```sql
-     SELECT pg_create_logical_replication_slot('peerdb_slot', 'pgoutput');
-     ```
-
-На самом деле PeerDB создает все это автоматом при создании зеркала. Также автоматом и удаляет при его удалении.  
-Все это делается через UI (http://localhost:3000/)
-
-### 3. **Настройте ClickHouse:**
-
-   * Создайте базу данных и таблицы, соответствующие структуре данных в PostgreSQL.
-
-На самом деле не обязательно, PeerDB также автоматом все это создает при создании зеркала (руками нужно создать, если хочется определенные типы полей, кодеки пожатия и т.п.), но не удаляет при его удалении и переиспользует при повторном создании зеркала.
-
-   * В созданной базе создайте пользователя и [назначьте права](https://docs.peerdb.io/connect/clickhouse/clickhouse-cloud#permissions)
-
-Нюанс. Пользователя лучше создать нового. Особенно, если существующий создан через xml config.
-
-```sql
-CREATE DATABASE test;
-
--- We recommend creating a separate user for PeerDB
-CREATE USER pr IDENTIFIED BY 'pr';
-
--- PeerDB needs to create tables and insert data into the tables.
--- Drop table permission is needed for DROP MIRROR support
-GRANT INSERT, SELECT, DROP, CREATE TABLE ON test.* to pr;
-
--- PeerDB uses an intermediary S3 stage for performance
-GRANT CREATE TEMPORARY TABLE, s3 on *.* to pr;
-
--- For automatic column-addition on the tables in the mirror
-GRANT ALTER ADD COLUMN ON test.* to pr;
-```
-
-Всё то же самое напрямую в users.xml (для забитого туда напрямую пользователя) сделать нельзя.   
-Будет ругаться что файлик readonly, даже если на него раздать вообще все права.   
-Только новый пользователь. В этом случае он уже пойдет по новой политике ролей (RBAC).
-
-
-
-### 4. **Настройте PeerDB:**
-
-   * Создайте зеркала (mirrors) для синхронизации данных между PostgreSQL и ClickHouse, указав параметры подключения и настройки репликации. ([docs.peerdb.io][6])
-
----
-
-### ✅ Рекомендации для продакшн-среды
-
-* **Используйте PeerDB:** Для интеграции PostgreSQL и ClickHouse в реальном времени PeerDB предлагает простоту настройки и высокую производительность.
-
-* **Настройте мониторинг:** Регулярно отслеживайте состояние репликации и производительность системы.
-
-* **Тестируйте нагрузку:** Проведите тестирование под нагрузкой, чтобы убедиться в способности системы обрабатывать требуемые объемы данных.
-
-* **Резервное копирование:** Настройте регулярное резервное копирование данных для предотвращения потери информации.
-
-[1]: https://threequants.io/insights/clickhouse-peerdb-cdc/?utm_source=chatgpt.com "Integrating Postgres And ClickHouse Using PeerDB Open Source | 3Quants"
-[2]: https://clickhouse.com/blog/enhancing-postgres-to-clickhouse-replication-using-peerdb?utm_source=chatgpt.com "Enhancing Postgres to ClickHouse replication using PeerDB"
-[3]: https://blog.peerdb.io/postgres-to-clickhouse-real-time-replication-using-peerdb?utm_source=chatgpt.com "Postgres to ClickHouse Real time Replication using PeerDB"
-[4]: https://blog.peerdb.io/postgres-to-clickhouse-data-modeling-tips?utm_source=chatgpt.com "Postgres to ClickHouse: Data Modeling Tips"
-[5]: https://benjaminwootton.com/insights/clickhouse-peerdb-demo/?utm_source=chatgpt.com "Reliably Replicating Data Between PostgreSQL and ClickHouse Part 3 - Demo | BenjaminWootton.com"
-[6]: https://docs.peerdb.io/mirror/cdc-pg-clickhouse?utm_source=chatgpt.com "CDC Setup from Postgres to ClickHouse - PeerDB Docs: Setup your ETL in minutes with SQL."
 
 ### ✅ Установка Docker и Docker Compose на AlmaLinux 9
 
@@ -223,13 +140,26 @@ GRANT ALTER ADD COLUMN ON test.* to pr;
 https://download.docker.com/linux/centos/docker-ce.repo
 ```
 
+### 1. [Установите PeerDB](https://docs.peerdb.io/quickstart/quickstart)
+
+```bash
+git clone --recursive https://github.com/PeerDB-io/peerdb.git
+cd peerdb
+
+# Run docker containers: peerdb-server, postgres as catalog, temporal.
+# This might take a few minutes, so get a cup of coffee! :)
+./run-peerdb.sh
+```
+
+### 2. **Настройте PostgreSQL:**
+
 Чтобы использовать **логическую репликацию** в PostgreSQL (например, для CDC с PeerDB, Debezium и пр.), нужно внести изменения в конфигурацию PostgreSQL и перезапустить сервер:
 
 ---
 
-## Включение логической репликации
+### Включение логической репликации
 
-### Файл конфигурации PostgreSQL
+#### Файл конфигурации PostgreSQL
 
 ```conf
 wal_level = logical
@@ -249,7 +179,7 @@ wal_keep_size = 64MB
 
 ---
 
-### Доступ в `pg_hba.conf`
+#### Доступ в `pg_hba.conf`
 
 ```conf
 host    replication     your_user       192.168.0.0/24         md5
@@ -257,7 +187,7 @@ host    replication     your_user       192.168.0.0/24         md5
 
 ---
 
-### Перезапустите PostgreSQL
+#### Перезапустите PostgreSQL
 
 ```bash
 sudo systemctl restart postgresql
@@ -265,7 +195,7 @@ sudo systemctl restart postgresql
 
 ---
 
-### Создайте пользователя с правами репликации
+#### Создайте пользователя с правами репликации
 
 Выполните в `psql` под пользователем `postgres`:
 
@@ -277,7 +207,7 @@ CREATE ROLE replication_user WITH REPLICATION LOGIN PASSWORD 'your_password';
 
 ---
 
-### Проверьте настройки
+#### Проверьте настройки
 
 Подключитесь к PostgreSQL и проверьте:
 
@@ -302,15 +232,94 @@ SELECT * FROM pg_replication_slots;
 
 ---
 
-Если вы планируете использовать это с **PeerDB**, то следующий шаг — создание **публикации**:
+   * Если вы планируете использовать это с **PeerDB**, то следующий шаг — создание **публикации**:
 
 ```sql
 CREATE PUBLICATION peerdb_publication FOR ALL TABLES;
 ```
 
-И PeerDB сможет подключаться, используя созданного пользователя и репликационный слот.
+   * Создайте **репликационный слот**:
+
+     ```sql
+     SELECT pg_create_logical_replication_slot('peerdb_slot', 'pgoutput');
+     ```
+
+На самом деле PeerDB создает все это автоматом при создании зеркала. Также автоматом и удаляет при его удалении.  
+Все это делается через UI (http://localhost:3000/)
+
+
+   * [Назначьте права пользователю в базе источнике](https://docs.peerdb.io/connect/postgres/rds_postgres#creating-peerdb-user-and-granting-permissions)
+
+```sql
+ CREATE USER peerdb_user PASSWORD 'some-password';
+
+ GRANT USAGE ON SCHEMA "public" TO peerdb_user;
+ GRANT SELECT ON ALL TABLES IN SCHEMA "public" TO peerdb_user;
+ ALTER DEFAULT PRIVILEGES IN SCHEMA "public" GRANT SELECT ON TABLES TO peerdb_user;
+
+ GRANT rds_replication TO peerdb_user ;
+
+ CREATE PUBLICATION peerdb_publication FOR ALL TABLES;
+
+ ALTER USER peerdb_user BYPASSRLS;
+```
+
+### 3. **Настройте ClickHouse:**
+
+   * Создайте базу данных и таблицы, соответствующие структуре данных в PostgreSQL.
+
+На самом деле не обязательно, PeerDB также автоматом все это создает при создании зеркала (руками нужно создать, если хочется определенные типы полей, кодеки пожатия и т.п.), но не удаляет при его удалении и переиспользует при повторном создании зеркала.
+
+   * В созданной базе создайте пользователя и [назначьте права](https://docs.peerdb.io/connect/clickhouse/clickhouse-cloud#permissions)
+
+Нюанс. Пользователя лучше создать нового. Особенно, если существующий создан через xml config.
+
+```sql
+CREATE DATABASE test;
+
+-- We recommend creating a separate user for PeerDB
+CREATE USER pr IDENTIFIED BY 'pr';
+
+-- PeerDB needs to create tables and insert data into the tables.
+-- Drop table permission is needed for DROP MIRROR support
+GRANT INSERT, SELECT, DROP, CREATE TABLE ON test.* to pr;
+
+-- PeerDB uses an intermediary S3 stage for performance
+GRANT CREATE TEMPORARY TABLE, s3 on *.* to pr;
+
+-- For automatic column-addition on the tables in the mirror
+GRANT ALTER ADD COLUMN ON test.* to pr;
+```
+
+Всё то же самое напрямую в users.xml (для забитого туда напрямую пользователя) сделать нельзя.   
+Будет ругаться что файлик readonly, даже если на него раздать вообще все права.   
+Только новый пользователь. В этом случае он уже пойдет по новой политике ролей (RBAC) и соотв позволит обращаться с собой при помощи инструкций.
+
+### 4. **Настройте PeerDB:**
+
+   * Создайте зеркала (mirrors) для синхронизации данных между PostgreSQL и ClickHouse, указав параметры подключения и настройки репликации. ([docs.peerdb.io][6])
+
+Здесь ключевой момент - соразмерность пачки и типов полей в табличке. Для легких табличек можно оставить как есть. Для джесонов сократить на порядок. Иначе можем закончить out of memory и отвалом зеркала.
 
 ---
+
+### ✅ Рекомендации для продакшн-среды
+
+* **Используйте PeerDB:** Для интеграции PostgreSQL и ClickHouse в реальном времени PeerDB предлагает простоту настройки и высокую производительность.
+
+* **Настройте мониторинг:** Регулярно отслеживайте состояние репликации и производительность системы.
+
+* **Тестируйте нагрузку:** Проведите тестирование под нагрузкой, чтобы убедиться в способности системы обрабатывать требуемые объемы данных.
+
+* **Резервное копирование:** Настройте регулярное резервное копирование данных для предотвращения потери информации.
+
+[1]: https://threequants.io/insights/clickhouse-peerdb-cdc/?utm_source=chatgpt.com "Integrating Postgres And ClickHouse Using PeerDB Open Source | 3Quants"
+[2]: https://clickhouse.com/blog/enhancing-postgres-to-clickhouse-replication-using-peerdb?utm_source=chatgpt.com "Enhancing Postgres to ClickHouse replication using PeerDB"
+[3]: https://blog.peerdb.io/postgres-to-clickhouse-real-time-replication-using-peerdb?utm_source=chatgpt.com "Postgres to ClickHouse Real time Replication using PeerDB"
+[4]: https://blog.peerdb.io/postgres-to-clickhouse-data-modeling-tips?utm_source=chatgpt.com "Postgres to ClickHouse: Data Modeling Tips"
+[5]: https://benjaminwootton.com/insights/clickhouse-peerdb-demo/?utm_source=chatgpt.com "Reliably Replicating Data Between PostgreSQL and ClickHouse Part 3 - Demo | BenjaminWootton.com"
+[6]: https://docs.peerdb.io/mirror/cdc-pg-clickhouse?utm_source=chatgpt.com "CDC Setup from Postgres to ClickHouse - PeerDB Docs: Setup your ETL in minutes with SQL."
+
 
 ## ✅ Установка PeerDB без Docker на AlmaLinux
 
@@ -395,28 +404,6 @@ CREATE PUBLICATION peerdb_publication FOR ALL TABLES;
 [1]: https://docs.peerdb.io/quickstart/quickstart?utm_source=chatgpt.com "Quickstart Guide - PeerDB Docs: Setup your ETL in minutes with SQL."
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Разбор логов PeerDB
 
@@ -527,21 +514,7 @@ ps aux | grep peerdb
 
 ---
 
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-## 🧠 Суть ошибки:
+## 🧠 Суть ошибки ACCESS_STORAGE_READONLY
 
 ```text
 DB::Exception: Cannot update user `ch` in users_xml because this storage is readonly. (ACCESS_STORAGE_READONLY)
