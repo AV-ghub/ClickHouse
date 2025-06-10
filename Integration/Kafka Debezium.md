@@ -56,6 +56,25 @@ CREATE TABLE uk_price_paid                                                      
 );
 ```
 
+#### Check replica identity
+```sql
+SELECT oid::regclass,CASE relreplident
+          WHEN 'd' THEN 'default'
+          WHEN 'n' THEN 'nothing'
+          WHEN 'f' THEN 'full'
+          WHEN 'i' THEN 'index'
+       END AS replica_identity
+FROM pg_class
+WHERE oid in ('public.uk_price_paid'::regclass);
+      oid      | replica_identity 
+---------------+------------------
+ uk_price_paid | default
+```
+#### Set replica identity
+```sql
+ALTER TABLE uk_price_paid REPLICA IDENTITY FULL;
+```
+
 ```bash
 wget https://datasets-documentation.s3.eu-west-3.amazonaws.com/uk-house-prices/postgres/uk_prices.sql.tar.gz
 ```
