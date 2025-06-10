@@ -476,6 +476,56 @@ unset CLASSPATH
 
 ---
 
+### 1. **Быстрая проверка работоспособности**
+#### a) **Сделайте изменение в PostgreSQL**:
+```sql
+-- Например, для таблицы uk_price_paid
+INSERT INTO uk_price_paid (price, date, ...) VALUES (100000, NOW(), ...);
+```
+
+#### b) **Проверьте Kafka-топик**:
+```bash
+/bin/kafka-console-consumer.sh \
+  --bootstrap-server localhost:9092 \
+  --topic pg_server.public.uk_price_paid \
+  --from-beginning
+```
+Должно появиться сообщение в формате Debezium (с полями `before`, `after`, `op` и т.д.).
+
+---
+
+### 2. **Где искать логи, если что-то пошло не так**
+- **Логи Kafka Connect**: вывод в консоли (если запущен вручную) или в файлах логов (обычно `/var/log/kafka/connect.log`).
+- **Логи Debezium**: ищите по ключевым словам `Snapshot`, `WAL`, `LSN`.
+- **Логи PostgreSQL**: проверьте, что WAL-логи пишутся (в `pg_wal` директории).
+
+---
+
+### 3. **Частые проблемы на этом этапе**
+- **Данные не появляются в Kafka**:
+  - Убедитесь, что в PostgreSQL включен `logical decoding` (`wal_level=logical`).
+  - Проверьте, что пользователь из конфига Debezium имеет права на репликацию.
+- **Ошибки формата данных**:
+  - Если ClickHouse не понимает формат Debezium, возможно, потребуется настроить `JSONEachRow` или использовать `Avro`.
+
+---
+
+### 4. **Дополнительные команды для диагностики**
+#### Проверить слоты репликации в PostgreSQL:
+```sql
+SELECT * FROM pg_replication_slots;
+```
+#### Удалить слот (если коннектор "завис"):
+```sql
+SELECT pg_drop_replication_slot('debezium_slot_name');
+```
+(имя слота указано в `connect-postgres-source.properties`)
+
+---
+
+### 5. **Полезные ссылки**
+- [Debezium PostgreSQL Connector Docs](https://debezium.io/documentation/reference/stable/connectors/postgresql.html)
+- [Troubleshooting Guide](https://debezium.io/documentation/faq/)
 
 
 
