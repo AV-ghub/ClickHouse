@@ -173,7 +173,27 @@ Installation dir
   curl http://localhost:8083/
   ```
 
-  Если есть ответ (JSON), Kafka Connect запущен.
+Если есть ответ (JSON), Kafka Connect запущен.
+
+После успешного запуска вывод выглядит вот так
+```bash
+curl -s http://localhost:8083/connectors/postgres-source/status | jq
+{
+  "name": "postgres-source",
+  "connector": {
+    "state": "RUNNING",
+    "worker_id": "10.30.40.150:8083"
+  },
+  "tasks": [
+    {
+      "id": 0,
+      "state": "RUNNING",
+      "worker_id": "10.30.40.150:8083"
+    }
+  ],
+  "type": "source"
+}
+```
 
 ---
 
@@ -192,31 +212,54 @@ tar -xzvf debezium-connector-postgres-3.1.2.Final-plugin.tar.gz
 
 Далее:  
 
-> Сначала папку plugins нужно создать, например в /opt/kafka/
+#### Правильная структура плагинов
 
-* Для standalone Kafka Connect достаточно положить jar-файл коннектора (то что распаковали из debezium-connector-postgres-3.1.2.Final-plugin.tar.gz) в папку plugins Kafka Connect (`/opt/kafka/`)
-* В /etc/kafka:
+> Kafka Connect ожидает, что каждый коннектор лежит в отдельной поддиректории **со всеми своими зависимостями**
+
+Создаем нужные папки:
+
+```bash
+# Создаем отдельную директорию для коннектора PostgreSQL
+mkdir -p /opt/kafka/plugins/debezium-postgres/
+
+# Копируем ВСЕ необходимые JAR-файлы в эту директорию
+cp .../distr/debezium-connector-postgres/*.jar /opt/kafka/plugins/debezium-postgres/
+```
+
+Для standalone Kafka Connect достаточно положить jar-файл коннектора (то что распаковали из debezium-connector-postgres-3.1.2.Final-plugin.tar.gz) в папку plugins Kafka Connect (`/opt/kafka/plugins/debezium-postgres/`)
+
+#### Проверка зависимостей
+Убедитесь, что у вас есть все необходимые JAR-файлы. Для Debezium PostgreSQL 3.1.2 должны быть:
+
+```bash
+debezium-api-3.1.2.Final.jar
+debezium-connector-postgres-3.1.2.Final.jar
+debezium-core-3.1.2.Final.jar
+postgresql-42.6.1.jar
+protobuf-java-3.25.5.jar
+```
+
+#### В /etc/kafka
 
 ```bash
 sudo nano connect-standalone.properties 
 sudo nano connect-distributed.properties
 ```
-=>
+add =>
 
 ```ini
-plugin.path=/opt/kafka/debezium-connector-postgres
+plugin.path=/opt/kafka/plugins
 ```
 
-* `connect-standalone.properties` — основной конфиг для Kafka Connect.
-* `connect-postgres-source.properties` — конфиг для конкретного источника (PostgreSQL).
+**`connect-standalone.properties`** — основной конфиг для Kafka Connect.
 
 ---
 
-### Где взять конфиг для PostgreSQL Source Connector?
+#### Где взять конфиг файл для PostgreSQL Source Connector?
 
-Создать руками.
+Создать руками. `connect-postgres-source.properties` — конфиг для конкретного источника (PostgreSQL).
 
-* Пример `connect-postgres-source.properties` для Debezium:
+Пример **`connect-postgres-source.properties`** для Debezium:
 
 ```properties
 name=postgres-source
@@ -242,22 +285,178 @@ topic.prefix=pg_server
 2. Запусти standalone режим (подойдет для тестов):
 
 ```bash
-# bin/connect-standalone.sh config/connect-standalone.properties config/connect-postgres-source.properties
-/bin/kafka/connect-standalone.sh config/connect-standalone.properties config/connect-postgres-source.properties
+/bin/kafka/connect-standalone.sh /etc/kafka/connect-standalone.properties /etc/kafka/connect-postgres-source.properties
 ```
 
-Проверки
+или с явным сбросом classpath:
+
+```bash
+export CLASSPATH=""
+/bin/kafka/connect-standalone.sh /etc/kafka/connect-standalone.properties /etc/kafka/connect-postgres-source.properties
+```
+
+### Проверки
 
 ```bash
 ps aux | grep connect
+admin    2347615 73.8  3.8 7143580 941376 pts/17 Sl+  17:02  44:33 java -Xms256M -Xmx2G -server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+ExplicitGCInvokesConcurrent -XX:MaxInlineLevel=15 -Djava.awt.headless=true -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dkafka.logs.dir=/bin/kafka/../logs -Dlog4j.configuration=file:/etc/kafka/tools-log4j.properties -cp .:/usr/lib64/kafka/* org.apache.kafka.connect.cli.ConnectStandalone /etc/kafka/connect-standalone.properties /etc/kafka/connect-postgres-source.properties
 ```
 
 ```bash
-curl http://localhost:8083/
+curl -s http://localhost:8083/connectors/postgres-source/status | jq
+{
+  "name": "postgres-source",
+  "connector": {
+    "state": "RUNNING",
+    "worker_id": "10.30.40.150:8083"
+  },
+  "tasks": [
+    {
+      "id": 0,
+      "state": "RUNNING",
+      "worker_id": "10.30.40.150:8083"
+    }
+  ],
+  "type": "source"
+}
 ```
 
+http://localhost:8083/
+```html
+version	"3.9.0"
+commit	"a60e31147e6b01ee"
+kafka_cluster_id	"82a04bae-8dc4-436f-bfa3-8abd6e669de9"
+```
+
+http://localhost:8083/connectors/
+```html
+0	"postgres-source"
+```
+
+http://localhost:8083/connectors/postgres-source/
+```html
+name	"postgres-source"
+config	
+connector.class	"io.debezium.connector.postgresql.PostgresConnector"
+database.user	"postgres"
+database.dbname	"pdkc"
+slot.name	"pdkc_integration_slot"
+tasks.max	"1"
+publication.name	"pdkc_integration"
+database.server.name	"pg_server"
+database.port	"5433"
+plugin.name	"pgoutput"
+topic.prefix	"pg_server"
+database.hostname	"localhost"
+database.password	"postgres"
+name	"postgres-source"
+table.include.list	"public.uk_price_paid"
+tasks	
+0	
+connector	"postgres-source"
+task	0
+type	"source"
+```
+
+http://localhost:8083/connectors/postgres-source/status
+```html
+name	"postgres-source"
+connector	
+state	"RUNNING"
+worker_id	"10.30.40.150:8083"
+tasks	
+0	
+id	0
+state	"RUNNING"
+worker_id	"10.30.40.150:8083"
+type	"source"
+```
+
+### Проблемы и ошибки
+
+#### Проверка версий
+Убедитесь, что:
+
+* Версия Kafka Connect совместима с Debezium 3.1.2 (лучше использовать Kafka 3.5+).
+* Нет конфликтов с другими JAR-файлами в системе.
+
+#### Логирование
+Если ошибка сохраняется, включите debug-логирование, добавив в connect-standalone.properties:
+
+```properties
+log4j.logger.org.apache.kafka.connect.runtime.isolation=DEBUG
+```
+
+Альтернативное решение (если не помогло)
+Скачайте полный дистрибутив Debezium (не только коннектор):
+
+```bash
+wget https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/3.1.2.Final/debezium-connector-postgres-3.1.2.Final-plugin.tar.gz
+tar -xzf debezium-connector-postgres-3.1.2.Final-plugin.tar.gz -C /opt/kafka/plugins/
+```
 
 ---
+
+### Дополнительные проверки
+
+#### 1. **Проверка структуры плагинов**
+Выполните:
+```bash
+tree /opt/kafka/plugins/
+```
+Ожидаемый вывод:
+```
+/opt/kafka/plugins/
+└── debezium-postgres
+    ├── debezium-api-3.1.2.Final.jar
+    ├── debezium-connector-postgres-3.1.2.Final.jar
+    ├── debezium-core-3.1.2.Final.jar
+    ├── postgresql-42.6.1.jar
+    └── protobuf-java-3.25.5.jar
+```
+Если структура не такая — исправьте через:
+```bash
+mkdir -p /opt/kafka/plugins/debezium-postgres/
+mv /opt/kafka/debezium-connector-postgres/*.jar /opt/kafka/plugins/debezium-postgres/
+```
+
+---
+
+#### 2. **Проверка прав доступа**
+Убедитесь, что JAR-файлы доступны для чтения:
+```bash
+chmod -R 755 /opt/kafka/plugins/
+```
+
+---
+
+### 3. **Запуск с debug-логированием**
+Добавьте в `/etc/kafka/connect-standalone.properties`:
+```properties
+log4j.logger.org.apache.kafka.connect.runtime.isolation=DEBUG
+```
+Запустите заново и сохраните логи.
+
+---
+
+#### 4. **Проверка переменных окружения**
+Иногда мешает `CLASSPATH` из системы. Запустите так:
+```bash
+unset CLASSPATH
+/bin/kafka/connect-standalone.sh /etc/kafka/connect-standalone.properties /etc/kafka/connect-postgres-source.properties
+```
+
+---
+
+#### 5. **Минимальный тест**
+Попробуйте запустить **без коннектора**, чтобы проверить, загружается ли сам Kafka Connect:
+```bash
+/bin/kafka/connect-standalone.sh /etc/kafka/connect-standalone.properties
+```
+Если и тут есть ошибки — проблема в настройках Kafka Connect.
+
+---
+
 
 
 
