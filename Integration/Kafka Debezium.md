@@ -74,7 +74,7 @@ WHERE oid in ('public.uk_price_paid'::regclass);
 ```sql
 ALTER TABLE uk_price_paid REPLICA IDENTITY FULL;
 ```
-
+#### Load data
 ```bash
 wget https://datasets-documentation.s3.eu-west-3.amazonaws.com/uk-house-prices/postgres/uk_prices.sql.tar.gz
 ```
