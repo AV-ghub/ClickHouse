@@ -528,6 +528,21 @@ SELECT pg_drop_replication_slot('debezium_slot_name');
 - [Troubleshooting Guide](https://debezium.io/documentation/faq/)
 
 
+# Prepare ClickHouse
+## Initial data load
+
+По поводу [началных установок](https://clickhouse.com/blog/clickhouse-postgresql-change-data-capture-cdc-part-2#prepare-clickhouse) Postgres to Kafka Debezium Connector.  
+В [документации](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-snapshots) видим ссылку на свойства.   
+В частности про [snapshot.mode connector configuration property](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-property-snapshot-mode).   
+По ссылке [table of snapshot.mode options](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-connector-snapshot-mode-options) находим полностью удовлетворяющее нас описание о том, что [initial (default)](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-connector-snapshot-mode-options:~:text=the%20new%20primary.-,initial%20(default),-The%20connector%20performs) действительно является дефолтным и осуществляет требуемое нам поведение.   
+
+В файлике 
+```bash
+/etc/kafka/connect-postgres-source.properties
+```
+это свойство не установлено, стало быть оно есть такое как выше.   
+Что и подтвердилось в частности на практике.   
+После включения сервиса коннектора он благополучно залил созданный собой топик в кафке и встал на ожидание новых транзакций.   
 
 
 
